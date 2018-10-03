@@ -1,0 +1,15 @@
+D:\Documentos\FIUMES\Sexto Semestre\Base de Datos II\Proyecto Colores\BDColores\DAL\bin\Debug\DAL.dll.config
+D:\Documentos\FIUMES\Sexto Semestre\Base de Datos II\Proyecto Colores\BDColores\DAL\bin\Debug\DAL.dll
+D:\Documentos\FIUMES\Sexto Semestre\Base de Datos II\Proyecto Colores\BDColores\DAL\bin\Debug\DAL.pdb
+D:\Documentos\FIUMES\Sexto Semestre\Base de Datos II\Proyecto Colores\BDColores\DAL\bin\Debug\EntityFramework.dll
+D:\Documentos\FIUMES\Sexto Semestre\Base de Datos II\Proyecto Colores\BDColores\DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\Documentos\FIUMES\Sexto Semestre\Base de Datos II\Proyecto Colores\BDColores\DAL\bin\Debug\MODELS.dll
+D:\Documentos\FIUMES\Sexto Semestre\Base de Datos II\Proyecto Colores\BDColores\DAL\bin\Debug\MODELS.pdb
+D:\Documentos\FIUMES\Sexto Semestre\Base de Datos II\Proyecto Colores\BDColores\DAL\bin\Debug\MODELS.dll.config
+D:\Documentos\FIUMES\Sexto Semestre\Base de Datos II\Proyecto Colores\BDColores\DAL\bin\Debug\EntityFramework.xml
+D:\Documentos\FIUMES\Sexto Semestre\Base de Datos II\Proyecto Colores\BDColores\DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\Documentos\FIUMES\Sexto Semestre\Base de Datos II\Proyecto Colores\BDColores\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+D:\Documentos\FIUMES\Sexto Semestre\Base de Datos II\Proyecto Colores\BDColores\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+D:\Documentos\FIUMES\Sexto Semestre\Base de Datos II\Proyecto Colores\BDColores\DAL\obj\Debug\DAL.csproj.CopyComplete
+D:\Documentos\FIUMES\Sexto Semestre\Base de Datos II\Proyecto Colores\BDColores\DAL\obj\Debug\DAL.dll
+D:\Documentos\FIUMES\Sexto Semestre\Base de Datos II\Proyecto Colores\BDColores\DAL\obj\Debug\DAL.pdb

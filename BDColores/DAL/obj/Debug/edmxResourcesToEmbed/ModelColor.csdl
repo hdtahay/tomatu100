@@ -1,0 +1,463 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BDColoresModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Accesorio">
+    <Key>
+      <PropertyRef Name="AccesorioId" />
+    </Key>
+    <Property Name="AccesorioId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tamaño_accesorio" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="existencia_accesorio" Type="Int32" Nullable="false" />
+    <Property Name="ProductoId" Type="Int32" />
+    <Property Name="precio_ventaccesorio" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="Detalle" Relationship="Self.Relationship31" FromRole="Accesorio" ToRole="Detalle" />
+    <NavigationProperty Name="Producto" Relationship="Self.Relationship35" FromRole="Accesorio" ToRole="Producto" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="ClienteId" />
+    </Key>
+    <Property Name="ClienteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre_cliente" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="apellido_cliente" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="estado_cliente" Type="Boolean" Nullable="false" />
+    <Property Name="nit_cliente" Type="String" MaxLength="9" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Factura" Relationship="Self.Relationship24" FromRole="Cliente" ToRole="Factura" />
+  </EntityType>
+  <EntityType Name="Controlpermiso">
+    <Key>
+      <PropertyRef Name="ControlpermisoId" />
+    </Key>
+    <Property Name="ControlpermisoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="estado_control" Type="Boolean" Nullable="false" />
+    <Property Name="RolId" Type="Int32" />
+    <Property Name="PermisoId" Type="Int32" />
+    <NavigationProperty Name="Rol" Relationship="Self.Relationship3" FromRole="Controlpermiso" ToRole="Rol" />
+    <NavigationProperty Name="Permiso" Relationship="Self.Relationship4" FromRole="Controlpermiso" ToRole="Permiso" />
+  </EntityType>
+  <EntityType Name="Datopago">
+    <Key>
+      <PropertyRef Name="DatopagoId" />
+    </Key>
+    <Property Name="FacturaId" Type="Int32" Nullable="false" />
+    <Property Name="ModopagoId" Type="Int32" Nullable="false" />
+    <Property Name="DatopagoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="monto_modo" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="observacion_uno" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="observacion_dos" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="observacion_tres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Factura" Relationship="Self.Relationship26" FromRole="Datopago" ToRole="Factura" />
+    <NavigationProperty Name="Modopago" Relationship="Self.Relationship27" FromRole="Datopago" ToRole="Modopago" />
+  </EntityType>
+  <EntityType Name="Datopinturabarniz">
+    <Key>
+      <PropertyRef Name="DatopinturabarnizId" />
+    </Key>
+    <Property Name="DatopinturabarnizId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="año_duracion" Type="Int32" Nullable="false" />
+    <Property Name="extension_area" Type="Double" Nullable="false" />
+    <Property Name="presentacion_pinturabarniz" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="base_pinturabarniza" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="producto_existencia" Type="Int32" Nullable="false" />
+    <Property Name="ProductoId" Type="Int32" />
+    <Property Name="precio_venta" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="Detalle" Relationship="Self.Relationship33" FromRole="Datopinturabarniz" ToRole="Detalle" />
+    <NavigationProperty Name="Producto" Relationship="Self.Relationship37" FromRole="Datopinturabarniz" ToRole="Producto" />
+  </EntityType>
+  <EntityType Name="Detalle">
+    <Key>
+      <PropertyRef Name="DetalleId" />
+    </Key>
+    <Property Name="DetalleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cantidad_venta" Type="Int32" Nullable="false" />
+    <Property Name="total_venta" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="FacturaId" Type="Int32" />
+    <Property Name="AccesorioId" Type="Int32" />
+    <Property Name="SolventeId" Type="Int32" />
+    <Property Name="DatopinturabarnizId" Type="Int32" />
+    <NavigationProperty Name="Accesorio" Relationship="Self.Relationship31" FromRole="Detalle" ToRole="Accesorio" />
+    <NavigationProperty Name="Datopinturabarniz" Relationship="Self.Relationship33" FromRole="Detalle" ToRole="Datopinturabarniz" />
+    <NavigationProperty Name="Factura" Relationship="Self.Relationship25" FromRole="Detalle" ToRole="Factura" />
+    <NavigationProperty Name="Solvente" Relationship="Self.Relationship32" FromRole="Detalle" ToRole="Solvente" />
+  </EntityType>
+  <EntityType Name="Empleado">
+    <Key>
+      <PropertyRef Name="EmpleadoId" />
+    </Key>
+    <Property Name="EmpleadoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre_empleado" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="apellido_empleado" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="direccion_empleado" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="telefono_empleado" Type="String" MaxLength="13" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="estado_empleado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Usuario" Relationship="Self.Relationship2" FromRole="Empleado" ToRole="Usuario" />
+    <NavigationProperty Name="Factura" Relationship="Self.Relationship28" FromRole="Empleado" ToRole="Factura" />
+  </EntityType>
+  <EntityType Name="Factura">
+    <Key>
+      <PropertyRef Name="FacturaId" />
+    </Key>
+    <Property Name="FacturaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="serie_factura" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="no_factura" Type="Int32" Nullable="false" />
+    <Property Name="monto_total" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="fecha_facturacion" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ClienteId" Type="Int32" />
+    <Property Name="EmpleadoId" Type="Int32" />
+    <NavigationProperty Name="Cliente" Relationship="Self.Relationship24" FromRole="Factura" ToRole="Cliente" />
+    <NavigationProperty Name="Datopago" Relationship="Self.Relationship26" FromRole="Factura" ToRole="Datopago" />
+    <NavigationProperty Name="Detalle" Relationship="Self.Relationship25" FromRole="Factura" ToRole="Detalle" />
+    <NavigationProperty Name="Empleado" Relationship="Self.Relationship28" FromRole="Factura" ToRole="Empleado" />
+  </EntityType>
+  <EntityType Name="Modopago">
+    <Key>
+      <PropertyRef Name="ModopagoId" />
+    </Key>
+    <Property Name="ModopagoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipo_pago" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="descripcion_pago" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Datopago" Relationship="Self.Relationship27" FromRole="Modopago" ToRole="Datopago" />
+  </EntityType>
+  <EntityType Name="Permiso">
+    <Key>
+      <PropertyRef Name="PermisoId" />
+    </Key>
+    <Property Name="PermisoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre_permiso" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="descripcion_permiso" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="estado_permiso" Type="Boolean" />
+    <NavigationProperty Name="Controlpermiso" Relationship="Self.Relationship4" FromRole="Permiso" ToRole="Controlpermiso" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="ProductoId" />
+    </Key>
+    <Property Name="ProductoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre_producto" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="descripcion_producto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="estado_producto" Type="Boolean" Nullable="false" />
+    <Property Name="porcentaje_descuento" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Accesorio" Relationship="Self.Relationship35" FromRole="Producto" ToRole="Accesorio" />
+    <NavigationProperty Name="Datopinturabarniz" Relationship="Self.Relationship37" FromRole="Producto" ToRole="Datopinturabarniz" />
+    <NavigationProperty Name="Solvente" Relationship="Self.Relationship36" FromRole="Producto" ToRole="Solvente" />
+  </EntityType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="RolId" />
+    </Key>
+    <Property Name="RolId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre_rol" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="descripcion_rol" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="estado_rol" Type="Boolean" />
+    <NavigationProperty Name="Controlpermiso" Relationship="Self.Relationship3" FromRole="Rol" ToRole="Controlpermiso" />
+    <NavigationProperty Name="Usuario" Relationship="Self.Relationship5" FromRole="Rol" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Solvente">
+    <Key>
+      <PropertyRef Name="SolventeId" />
+    </Key>
+    <Property Name="SolventeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipo_presentacion" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="existencia_solvente" Type="Int32" Nullable="false" />
+    <Property Name="ProductoId" Type="Int32" />
+    <Property Name="precio_ventasolvente" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="Detalle" Relationship="Self.Relationship32" FromRole="Solvente" ToRole="Detalle" />
+    <NavigationProperty Name="Producto" Relationship="Self.Relationship36" FromRole="Solvente" ToRole="Producto" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="UsuarioId" />
+    </Key>
+    <Property Name="UsuarioId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre_usuario" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="pass_usuario" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="estado_usuario" Type="Boolean" Nullable="false" />
+    <Property Name="EmpleadoId" Type="Int32" />
+    <Property Name="RolId" Type="Int32" />
+    <NavigationProperty Name="Empleado" Relationship="Self.Relationship2" FromRole="Usuario" ToRole="Empleado" />
+    <NavigationProperty Name="Rol" Relationship="Self.Relationship5" FromRole="Usuario" ToRole="Rol" />
+  </EntityType>
+  <Association Name="Relationship31">
+    <End Role="Accesorio" Type="Self.Accesorio" Multiplicity="0..1" />
+    <End Role="Detalle" Type="Self.Detalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Accesorio">
+        <PropertyRef Name="AccesorioId" />
+      </Principal>
+      <Dependent Role="Detalle">
+        <PropertyRef Name="AccesorioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship35">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="0..1" />
+    <End Role="Accesorio" Type="Self.Accesorio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="ProductoId" />
+      </Principal>
+      <Dependent Role="Accesorio">
+        <PropertyRef Name="ProductoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship24">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+    <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="ClienteId" />
+      </Principal>
+      <Dependent Role="Factura">
+        <PropertyRef Name="ClienteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship3">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="0..1" />
+    <End Role="Controlpermiso" Type="Self.Controlpermiso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="RolId" />
+      </Principal>
+      <Dependent Role="Controlpermiso">
+        <PropertyRef Name="RolId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship4">
+    <End Role="Permiso" Type="Self.Permiso" Multiplicity="0..1" />
+    <End Role="Controlpermiso" Type="Self.Controlpermiso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Permiso">
+        <PropertyRef Name="PermisoId" />
+      </Principal>
+      <Dependent Role="Controlpermiso">
+        <PropertyRef Name="PermisoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship26">
+    <End Role="Factura" Type="Self.Factura" Multiplicity="1" />
+    <End Role="Datopago" Type="Self.Datopago" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Factura">
+        <PropertyRef Name="FacturaId" />
+      </Principal>
+      <Dependent Role="Datopago">
+        <PropertyRef Name="FacturaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship27">
+    <End Role="Modopago" Type="Self.Modopago" Multiplicity="1" />
+    <End Role="Datopago" Type="Self.Datopago" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Modopago">
+        <PropertyRef Name="ModopagoId" />
+      </Principal>
+      <Dependent Role="Datopago">
+        <PropertyRef Name="ModopagoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship33">
+    <End Role="Datopinturabarniz" Type="Self.Datopinturabarniz" Multiplicity="0..1" />
+    <End Role="Detalle" Type="Self.Detalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Datopinturabarniz">
+        <PropertyRef Name="DatopinturabarnizId" />
+      </Principal>
+      <Dependent Role="Detalle">
+        <PropertyRef Name="DatopinturabarnizId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship37">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="0..1" />
+    <End Role="Datopinturabarniz" Type="Self.Datopinturabarniz" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="ProductoId" />
+      </Principal>
+      <Dependent Role="Datopinturabarniz">
+        <PropertyRef Name="ProductoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship25">
+    <End Role="Factura" Type="Self.Factura" Multiplicity="0..1" />
+    <End Role="Detalle" Type="Self.Detalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Factura">
+        <PropertyRef Name="FacturaId" />
+      </Principal>
+      <Dependent Role="Detalle">
+        <PropertyRef Name="FacturaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship32">
+    <End Role="Solvente" Type="Self.Solvente" Multiplicity="0..1" />
+    <End Role="Detalle" Type="Self.Detalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Solvente">
+        <PropertyRef Name="SolventeId" />
+      </Principal>
+      <Dependent Role="Detalle">
+        <PropertyRef Name="SolventeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship2">
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="EmpleadoId" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="EmpleadoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship28">
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
+    <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="EmpleadoId" />
+      </Principal>
+      <Dependent Role="Factura">
+        <PropertyRef Name="EmpleadoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship36">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="0..1" />
+    <End Role="Solvente" Type="Self.Solvente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="ProductoId" />
+      </Principal>
+      <Dependent Role="Solvente">
+        <PropertyRef Name="ProductoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship5">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="0..1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="RolId" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="RolId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BDColoresEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Accesorio" EntityType="Self.Accesorio" />
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+    <EntitySet Name="Controlpermiso" EntityType="Self.Controlpermiso" />
+    <EntitySet Name="Datopago" EntityType="Self.Datopago" />
+    <EntitySet Name="Datopinturabarniz" EntityType="Self.Datopinturabarniz" />
+    <EntitySet Name="Detalle" EntityType="Self.Detalle" />
+    <EntitySet Name="Empleado" EntityType="Self.Empleado" />
+    <EntitySet Name="Factura" EntityType="Self.Factura" />
+    <EntitySet Name="Modopago" EntityType="Self.Modopago" />
+    <EntitySet Name="Permiso" EntityType="Self.Permiso" />
+    <EntitySet Name="Producto" EntityType="Self.Producto" />
+    <EntitySet Name="Rol" EntityType="Self.Rol" />
+    <EntitySet Name="Solvente" EntityType="Self.Solvente" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+    <AssociationSet Name="Relationship31" Association="Self.Relationship31">
+      <End Role="Accesorio" EntitySet="Accesorio" />
+      <End Role="Detalle" EntitySet="Detalle" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship35" Association="Self.Relationship35">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="Accesorio" EntitySet="Accesorio" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship24" Association="Self.Relationship24">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Factura" EntitySet="Factura" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship3" Association="Self.Relationship3">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="Controlpermiso" EntitySet="Controlpermiso" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship4" Association="Self.Relationship4">
+      <End Role="Permiso" EntitySet="Permiso" />
+      <End Role="Controlpermiso" EntitySet="Controlpermiso" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship26" Association="Self.Relationship26">
+      <End Role="Factura" EntitySet="Factura" />
+      <End Role="Datopago" EntitySet="Datopago" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship27" Association="Self.Relationship27">
+      <End Role="Modopago" EntitySet="Modopago" />
+      <End Role="Datopago" EntitySet="Datopago" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship33" Association="Self.Relationship33">
+      <End Role="Datopinturabarniz" EntitySet="Datopinturabarniz" />
+      <End Role="Detalle" EntitySet="Detalle" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship37" Association="Self.Relationship37">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="Datopinturabarniz" EntitySet="Datopinturabarniz" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship25" Association="Self.Relationship25">
+      <End Role="Factura" EntitySet="Factura" />
+      <End Role="Detalle" EntitySet="Detalle" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship32" Association="Self.Relationship32">
+      <End Role="Solvente" EntitySet="Solvente" />
+      <End Role="Detalle" EntitySet="Detalle" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship2" Association="Self.Relationship2">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship28" Association="Self.Relationship28">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="Factura" EntitySet="Factura" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship36" Association="Self.Relationship36">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="Solvente" EntitySet="Solvente" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship5" Association="Self.Relationship5">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <FunctionImport Name="f_Log" IsComposable="true" ReturnType="Collection(BDColoresModel.f_Log_Result)">
+      <Parameter Name="user" Mode="In" Type="String" />
+      <Parameter Name="pass" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Iniciar" IsComposable="true" ReturnType="Collection(BDColoresModel.Iniciar_Result)">
+      <Parameter Name="user" Mode="In" Type="String" />
+      <Parameter Name="pass" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="f_Log_Result">
+    <Property Type="String" Name="nombre_usuario" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="pass_usuario" Nullable="false" MaxLength="8" />
+  </ComplexType>
+  <ComplexType Name="Iniciar_Result">
+    <Property Type="String" Name="nombre_usuario" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="pass_usuario" Nullable="false" MaxLength="8" />
+  </ComplexType>
+</Schema>

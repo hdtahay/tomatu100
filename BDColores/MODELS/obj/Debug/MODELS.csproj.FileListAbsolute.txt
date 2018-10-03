@@ -1,0 +1,12 @@
+D:\Documentos\FIUMES\Sexto Semestre\Base de Datos II\Proyecto Colores\BDColores\MODELS\bin\Debug\MODELS.dll.config
+D:\Documentos\FIUMES\Sexto Semestre\Base de Datos II\Proyecto Colores\BDColores\MODELS\bin\Debug\MODELS.dll
+D:\Documentos\FIUMES\Sexto Semestre\Base de Datos II\Proyecto Colores\BDColores\MODELS\bin\Debug\MODELS.pdb
+D:\Documentos\FIUMES\Sexto Semestre\Base de Datos II\Proyecto Colores\BDColores\MODELS\bin\Debug\EntityFramework.dll
+D:\Documentos\FIUMES\Sexto Semestre\Base de Datos II\Proyecto Colores\BDColores\MODELS\bin\Debug\EntityFramework.SqlServer.dll
+D:\Documentos\FIUMES\Sexto Semestre\Base de Datos II\Proyecto Colores\BDColores\MODELS\bin\Debug\EntityFramework.xml
+D:\Documentos\FIUMES\Sexto Semestre\Base de Datos II\Proyecto Colores\BDColores\MODELS\bin\Debug\EntityFramework.SqlServer.xml
+D:\Documentos\FIUMES\Sexto Semestre\Base de Datos II\Proyecto Colores\BDColores\MODELS\obj\Debug\MODELS.csproj.CoreCompileInputs.cache
+D:\Documentos\FIUMES\Sexto Semestre\Base de Datos II\Proyecto Colores\BDColores\MODELS\obj\Debug\MODELS.csproj.CopyComplete
+D:\Documentos\FIUMES\Sexto Semestre\Base de Datos II\Proyecto Colores\BDColores\MODELS\obj\Debug\MODELS.dll
+D:\Documentos\FIUMES\Sexto Semestre\Base de Datos II\Proyecto Colores\BDColores\MODELS\obj\Debug\MODELS.pdb
+D:\Documentos\FIUMES\Sexto Semestre\Base de Datos II\Proyecto Colores\BDColores\MODELS\obj\Debug\MODELS.csprojAssemblyReference.cache
